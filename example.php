@@ -1,4 +1,7 @@
 <?php
+
+use DrSlump\Protobuf;
+
 require __DIR__ . '/vendor/autoload.php';
 
 class State extends \DrSlump\Protobuf\AnnotatedMessage
@@ -103,15 +106,21 @@ class Attribute extends \DrSlump\Protobuf\AnnotatedMessage
 $message = new Msg();
 $message->ok = true;
 $message->error = '';
-$state = new State();
-$state->time = time();
-$message->states = array($state);
-$query = new Query();
-$query->string = '/huhu';
-$message->query = $query;
 $event = new Event();
 $event->time = time();
+$event->description = 'hihihi';
+$event->host = 'joschaimsein';
+$event->state = 'critical';
+$event->service = 'php stuff';
+$event->metric_f = 1000;
+$event->metric_d = 999.9;
+$event->ttl = 300.0;
 $message->events = array($event);
 
-$protoMessage = \DrSlump\Protobuf::encode($message);
-var_dump($protoMessage);
+$fp = stream_socket_client("udp://127.0.0.1:5555", $errno, $errstr, 10);
+if (!$fp) {
+    echo "ERROR: $errno - $errstr<br />\n";
+} else {
+    fwrite($fp, Protobuf::encode($message));
+    fclose($fp);
+}
