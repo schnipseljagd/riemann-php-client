@@ -1,0 +1,17 @@
+{
+    "name": "schnipseljagd/riemann-php-client",
+    "description": "A php client for the Riemann event system",
+    "require": {
+        "rgooding/protobuf-php": "dev-master"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "@stable"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Joscha",
+            "email": "joscha@schnipseljagd.org"
+        }
+    ]
+}
