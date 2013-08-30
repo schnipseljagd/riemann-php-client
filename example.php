@@ -117,10 +117,8 @@ $event->metric_d = 999.9;
 $event->ttl = 300.0;
 $message->events = array($event);
 
-$fp = stream_socket_client("udp://127.0.0.1:5555", $errno, $errstr, 10);
-if (!$fp) {
-    echo "ERROR: $errno - $errstr<br />\n";
-} else {
-    fwrite($fp, Protobuf::encode($message));
-    fclose($fp);
-}
+$socketClient = new Thrift\Transport\TSocket("udp://127.0.0.1", 5555);
+$socketClient->setSendTimeout(10000);
+$socketClient->open();
+$socketClient->write(Protobuf::encode($message));
+$socketClient->close();

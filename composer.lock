@@ -3,8 +3,42 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "7c2537cc88291b94f5e6bfa65c644978",
+    "hash": "90cf334e204cf0c1e3a7f1e5cab19547",
     "packages": [
+        {
+            "name": "ebuzzing/thrift",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ebuzzing/thrift.git",
+                "reference": "928941350b5fa88f0a2e61e021929b0dcb6cb3ad"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ebuzzing/thrift/zipball/928941350b5fa88f0a2e61e021929b0dcb6cb3ad",
+                "reference": "928941350b5fa88f0a2e61e021929b0dcb6cb3ad",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Thrift": "lib/php/lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "OverBlog",
+                    "homepage": "http://www.over-blog.com"
+                }
+            ],
+            "description": "Thrift fork",
+            "homepage": "https://github.com/ebuzzing/thrift.git",
+            "time": "2013-08-23 14:39:54"
+        },
         {
             "name": "rgooding/protobuf-php",
             "version": "dev-master",
@@ -427,17 +461,17 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v2.3.3",
+            "version": "v2.3.4",
             "target-dir": "Symfony/Component/Yaml",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Yaml.git",
-                "reference": "v2.3.3"
+                "reference": "5a279f1b5f5e1045a6c432354d9ea727ff3a9847"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Yaml/zipball/v2.3.3",
-                "reference": "v2.3.3",
+                "url": "https://api.github.com/repos/symfony/Yaml/zipball/5a279f1b5f5e1045a6c432354d9ea727ff3a9847",
+                "reference": "5a279f1b5f5e1045a6c432354d9ea727ff3a9847",
                 "shasum": ""
             },
             "require": {
@@ -470,7 +504,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "http://symfony.com",
-            "time": "2013-07-21 12:12:18"
+            "time": "2013-08-24 15:26:22"
         }
     ],
     "aliases": [
@@ -479,6 +513,7 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "rgooding/protobuf-php": 20,
+        "ebuzzing/thrift": 20,
         "phpunit/phpunit": 0
     },
     "platform": [

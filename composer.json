@@ -2,7 +2,8 @@
     "name": "schnipseljagd/riemann-php-client",
     "description": "A php client for the Riemann event system",
     "require": {
-        "rgooding/protobuf-php": "dev-master"
+        "rgooding/protobuf-php": "dev-master",
+        "ebuzzing/thrift": "dev-master"
     },
     "require-dev": {
         "phpunit/phpunit": "@stable"
