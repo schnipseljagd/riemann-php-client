@@ -115,6 +115,7 @@ $event->service = 'php stuff';
 $event->metric_f = 1000;
 $event->metric_d = 999.9;
 $event->ttl = 300.0;
+$event->tags = array('php');
 $message->events = array($event);
 
 $socketClient = new Thrift\Transport\TSocket("udp://127.0.0.1", 5555);
