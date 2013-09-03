@@ -112,10 +112,13 @@ $event->description = 'hihihi';
 $event->host = 'joschaimsein';
 $event->state = 'critical';
 $event->service = 'php stuff';
-$event->metric_f = 1000;
-$event->metric_d = 999.9;
+$event->metric_f = mt_rand(0, 99);
 $event->ttl = 300.0;
 $event->tags = array('php');
+$attribute = new Attribute();
+$attribute->key = 'signup';
+$attribute->value = 'mobile';
+$event->attributes = array($attribute);
 $message->events = array($event);
 
 $socketClient = new Thrift\Transport\TSocket("udp://127.0.0.1", 5555);
