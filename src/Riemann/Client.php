@@ -37,7 +37,6 @@ class Client
         $message = new Msg();
         $message->ok = true;
         $message->events = $this->events;
-        var_dump($message->events);
         $this->socketClient->open();
         $this->socketClient->write(Protobuf::encode($message));
         $this->socketClient->close();
