@@ -33,7 +33,7 @@ class EventBuilderTest extends \PHPUnit_Framework_TestCase
     /**
      * @test
      */
-    public function itShouldBuildAnEvent()
+    public function itShouldSendBuiltEventToClient()
     {
         $service = self::SOME_SERVICE;
         $metric = self::A_INT_METRIC;
@@ -44,7 +44,6 @@ class EventBuilderTest extends \PHPUnit_Framework_TestCase
             ->setMetric($metric)
             ->addTag($tag);
 
-
         $expectedEvent = new Event();
         $expectedEvent->service = $service;
         $expectedEvent->time = self::CURRENT_TIMESTAMP;
@@ -53,10 +52,12 @@ class EventBuilderTest extends \PHPUnit_Framework_TestCase
         $expectedEvent->tags = array($tag);
         $expectedEvent->host = self::A_HOST;
 
-        $this->assertThat(
-            $this->eventBuilder->build(),
-            $this->equalTo($expectedEvent)
-        );
+        $clientMock = $this->getMock('Riemann\Client');
+        $clientMock->expects($this->once())
+            ->method('sendEvent')
+            ->with($this->equalTo($expectedEvent));
+        $this->eventBuilder->setClient($clientMock);
+        $this->eventBuilder->sendEvent();
     }
 
     /**
