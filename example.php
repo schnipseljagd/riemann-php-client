@@ -13,7 +13,7 @@ $eventBuilder->addTag('histogram');
 $eventBuilder->sendEvent();
 
 $eventBuilder = $riemannClient->getEventBuilder();
-$eventBuilder->setService("php stuff");
+$eventBuilder->setService("php stuff2");
 $eventBuilder->setMetric(mt_rand(99, 199));
 $eventBuilder->addTag('meter');
 $eventBuilder->sendEvent();
