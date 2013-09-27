@@ -11,18 +11,25 @@ class Client
      */
     private $events;
 
-    public function __construct()
+    private $eventBuilderFactory;
+
+    public function __construct(TSocket $socketClient, EventBuilderFactory $eventBuilderFactory)
     {
-        $this->socketClient = new TSocket("udp://localhost", 5555);
+        $this->socketClient = $socketClient;
+        $this->eventBuilderFactory = $eventBuilderFactory;
+    }
+
+    public static function create($host, $port, $persist = false)
+    {
+        return new self(
+            new TSocket("udp://$host", $port, $persist),
+            new EventBuilderFactory()
+        );
     }
 
     public function getEventBuilder()
     {
-        $builder = new EventBuilder(
-            new DateTimeProvider(),
-            'some host',
-            array('some tag')
-        );
+        $builder = $this->eventBuilderFactory->create();
         $builder->setClient($this);
         return $builder;
     }

@@ -52,7 +52,9 @@ class EventBuilderTest extends \PHPUnit_Framework_TestCase
         $expectedEvent->tags = array($tag);
         $expectedEvent->host = self::A_HOST;
 
-        $clientMock = $this->getMock('Riemann\Client');
+        $clientMock = $this->getMockBuilder('Riemann\Client')
+            ->disableOriginalConstructor()
+            ->getMock();
         $clientMock->expects($this->once())
             ->method('sendEvent')
             ->with($this->equalTo($expectedEvent));

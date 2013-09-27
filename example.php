@@ -1,10 +1,11 @@
 <?php
+error_reporting(-1);
 
 use Riemann\Client;
 
 require __DIR__ . '/vendor/autoload.php';
 
-$riemannClient = new Client();
+$riemannClient = Client::create('localhost', 5555);
 
 $eventBuilder = $riemannClient->getEventBuilder();
 $eventBuilder->setService("php stuff");
