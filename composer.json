@@ -8,6 +8,11 @@
     "require-dev": {
         "phpunit/phpunit": "@stable"
     },
+    "autoload": {
+        "psr-0": {
+            "Riemann\\": "src/"
+        }
+    },
     "license": "MIT",
     "authors": [
         {
