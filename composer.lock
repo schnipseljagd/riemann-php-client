@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "f7d78cc33fa8184a4544ecfc90661562",
+    "hash": "e73f3cfb252ac024796b1d9cd56f4194",
     "packages": [
         {
             "name": "ebuzzing/thrift",

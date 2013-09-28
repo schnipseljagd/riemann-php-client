@@ -4,7 +4,6 @@
     "description": "A php client for the Riemann event system",
     "keywords": ["riemann", "metric", "event"],
     "homepage": "http://riemann.io/",
-    "license": "MIT",
     "require": {
         "rgooding/protobuf-php": "dev-master",
         "ebuzzing/thrift": "dev-master"
@@ -14,8 +13,7 @@
     },
     "autoload": {
         "psr-0": {
-            "Riemann\\Tests": "tests/",
-            "Riemann": "src/"
+            "Riemann\\": "src/"
         }
     },
     "license": "MIT",

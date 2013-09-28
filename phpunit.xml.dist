@@ -1,21 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<phpunit backupGlobals="false"
-         backupStaticAttributes="false"
-         colors="true"
-         convertErrorsToExceptions="true"
-         convertNoticesToExceptions="true"
-         convertWarningsToExceptions="true"
-         processIsolation="false"
-         stopOnFailure="false"
-         syntaxCheck="false"
->
+<phpunit colors="true" bootstrap="./tests/bootstrap.php">
     <testsuites>
-        <testsuite name="Test Suite">
-          <directory>tests/Riemann/Test/</directory>
+        <testsuite name="Riemann Test Suite">
+          <directory>./tests/Riemann/</directory>
         </testsuite>
     </testsuites>
-    <php>
-        <ini name="error_reporting" value="-1" />
-    </php>
 </phpunit>
