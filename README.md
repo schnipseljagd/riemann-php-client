@@ -1,6 +1,8 @@
 riemann-php-client
 ==================
 
+[![Build Status](https://travis-ci.org/schnipseljagd/riemann-php-client.png?branch=master)](https://travis-ci.org/schnipseljagd/riemann-php-client)
+
 http://riemann.io/quickstart.html
 
 Uses thrift socket transport atm, but there is no real need for this dependency.
