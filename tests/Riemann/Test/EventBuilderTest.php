@@ -13,7 +13,7 @@ class EventBuilderTest extends \PHPUnit_Framework_TestCase
     const SOME_SERVER_ROLE_TAG = 'some_server_role';
     const A_FLOAT_METRIC = 12.34;
     const A_HOST = 'some.host';
-    const CURRENT_DATETIME = '2013-10-10 12:34:31';
+    const CURRENT_DATETIME = '2013-10-10T12:34:31+02:00';
     const CURRENT_TIMESTAMP = '1381401271';
 
     /**
@@ -142,7 +142,7 @@ class EventBuilderTest extends \PHPUnit_Framework_TestCase
      */
     public function itShouldSetTheCurrentTimeOnBuild()
     {
-        $now = new \DateTime();
+        $now = new \DateTime("now");
         $dateTimeProvider = $this->getMock('Riemann\DateTimeProvider');
         $dateTimeProvider->expects($this->once())
             ->method('now')
