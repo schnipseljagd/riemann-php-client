@@ -4,3 +4,5 @@ php:
   - 5.4
 before_install:
   - composer install
+script:
+  - php vendor/bin/phpunit
