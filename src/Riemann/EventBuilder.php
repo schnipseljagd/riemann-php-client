@@ -7,6 +7,7 @@ class EventBuilder
 
     private $dateTimeProvider;
     private $host;
+    private $attributes;
     private $tags;
     private $service;
     private $metric = 1;
@@ -24,6 +25,7 @@ class EventBuilder
         $this->dateTimeProvider = $dateTimeProvider;
         $this->host = $host;
         $this->tags = $initialTags;
+        $this->attributes = array();
     }
 
     public function setService($service)
@@ -44,6 +46,15 @@ class EventBuilder
         return $this;
     }
 
+    public function addAttribute($key, $value)
+    {
+        $attr = new Attribute();
+        $attr->key = $key;
+        $attr->value = $value;
+        $this->attributes[] = $attr;
+        return $this;
+    }
+
     public function build()
     {
         if (!$this->service) {
@@ -54,6 +65,7 @@ class EventBuilder
         $event->time = $this->dateTimeProvider->now()->getTimestamp();
         $event->service = $this->service;
         $event->tags = $this->tags;
+        $event->attributes = $this->attributes;
 
         $floatMetric = (float)$this->metric;
         $event->metric_f = $floatMetric;
